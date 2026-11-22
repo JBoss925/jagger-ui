@@ -1,3 +1,4 @@
+import { portfolioUrl } from "../../urls";
 import jaggerscriptPreview from "../../assets/jaggerscript-preview.jpg";
 import type { PaperDocument } from "../../types/content";
 export const jaggerscriptPaper: PaperDocument = {
@@ -30,7 +31,7 @@ export const jaggerscriptPaper: PaperDocument = {
     actionLinks: [
         {
             label: "Open Playground",
-            href: "https://jaggerbrulato.com/jaggerscript",
+            href: portfolioUrl("/jaggerscript"),
             description: "Run and edit JaggerScript examples in the browser"
         }
     ],

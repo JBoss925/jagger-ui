@@ -1,3 +1,4 @@
+import { portfolioUrl } from "../../urls";
 import ojamlPreview from "../../assets/ojaml-preview.jpg";
 import type { PaperDocument } from "../../types/content";
 export const ojamlPaper: PaperDocument = {
@@ -31,7 +32,7 @@ export const ojamlPaper: PaperDocument = {
     actionLinks: [
         {
             label: "Open Editor",
-            href: "https://jaggerbrulato.com/ojaml",
+            href: portfolioUrl("/ojaml"),
             description: "Compile and run OJaml programs in the browser"
         }
     ],

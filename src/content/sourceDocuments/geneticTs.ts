@@ -1,3 +1,4 @@
+import { portfolioUrl } from "../../urls";
 import geneticPreview from "../../assets/genetic-preview.jpg";
 import type { PaperDocument } from "../../types/content";
 export const geneticTsPaper: PaperDocument = {
@@ -29,7 +30,7 @@ export const geneticTsPaper: PaperDocument = {
     actionLinks: [
         {
             label: "Open Demo",
-            href: "https://jaggerbrulato.com/genetic-ts",
+            href: portfolioUrl("/genetic-ts"),
             description: "Run the interactive genetic algorithm simulation"
         }
     ],

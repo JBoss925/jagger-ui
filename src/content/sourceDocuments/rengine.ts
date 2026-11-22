@@ -1,3 +1,4 @@
+import { portfolioUrl } from "../../urls";
 import renginePreview from "../../assets/rengine-preview.jpg";
 import type { PaperDocument } from "../../types/content";
 export const renginePaper: PaperDocument = {
@@ -29,7 +30,7 @@ export const renginePaper: PaperDocument = {
     actionLinks: [
         {
             label: "Open Demo",
-            href: "https://jaggerbrulato.com/rengine",
+            href: portfolioUrl("/rengine"),
             description: "Inspect the live Rengine scene demo"
         }
     ],
