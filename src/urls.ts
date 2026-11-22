@@ -4,29 +4,81 @@ const viteEnv: Record<string, string | undefined> =
       .env) ||
   {};
 
-function readEnvUrl(key: string, fallback: string): string {
+export function isLocalRuntime(): boolean {
+  if (viteEnv.MODE === "test") return false;
+  if (viteEnv.DEV || viteEnv.MODE === "development") return true;
+  if (typeof window !== "undefined" && window.location) {
+    const host = window.location.hostname;
+    if (
+      host === "localhost" ||
+      host === "127.0.0.1" ||
+      host === "[::1]" ||
+      host === "0.0.0.0" ||
+      host.endsWith(".localhost")
+    ) {
+      return true;
+    }
+    return false;
+  }
+  return false;
+}
+
+export function localOrigin(port: number): string {
+  if (typeof window !== "undefined" && window.location) {
+    const protocol = window.location.protocol || "http:";
+    const host = window.location.hostname || "localhost";
+    return `${protocol}//${host}:${port}`;
+  }
+  return `http://localhost:${port}`;
+}
+
+function readEnvUrl(
+  key: string,
+  localPort: number,
+  prodFallback: string,
+): string {
   const raw = viteEnv[key]?.trim();
-  return raw ? raw.replace(/\/+$/, "") : fallback;
+  if (raw) return raw.replace(/\/+$/, "");
+  if (isLocalRuntime()) return localOrigin(localPort);
+  return prodFallback;
 }
 
 export const SITE_URLS = {
-  portfolio: readEnvUrl("VITE_PORTFOLIO_URL", "https://jaggerbrulato.com"),
-  games: readEnvUrl("VITE_GAMES_URL", "https://games.jaggerbrulato.com"),
-  docs: readEnvUrl("VITE_DOCS_URL", "https://docs.jaggerbrulato.com"),
-  papers: readEnvUrl("VITE_PAPERS_URL", "https://papers.jaggerbrulato.com"),
-  arena: readEnvUrl("VITE_ARENA_URL", "https://arena.jaggerbrulato.com"),
+  portfolio: readEnvUrl("VITE_PORTFOLIO_URL", 5173, "https://jaggerbrulato.com"),
+  games: readEnvUrl("VITE_GAMES_URL", 5174, "https://games.jaggerbrulato.com"),
+  docs: readEnvUrl("VITE_DOCS_URL", 5175, "https://docs.jaggerbrulato.com"),
+  papers: readEnvUrl(
+    "VITE_PAPERS_URL",
+    5176,
+    "https://papers.jaggerbrulato.com",
+  ),
+  arena: readEnvUrl("VITE_ARENA_URL", 5177, "https://arena.jaggerbrulato.com"),
   jetstream: readEnvUrl(
     "VITE_JETSTREAM_URL",
+    5178,
     "https://jetstream.jaggerbrulato.com",
   ),
-  risk: readEnvUrl("VITE_RISK_URL", "https://risk.jaggerbrulato.com"),
+  risk: readEnvUrl("VITE_RISK_URL", 5180, "https://risk.jaggerbrulato.com"),
+  editor: readEnvUrl(
+    "VITE_EDITOR_URL",
+    5182,
+    "https://editor.jaggerbrulato.com",
+  ),
+  design: readEnvUrl(
+    "VITE_DESIGN_URL",
+    5183,
+    "https://design.jaggerbrulato.com",
+  ),
+  finance: readEnvUrl(
+    "VITE_FINANCE_URL",
+    5184,
+    "https://finance.jaggerbrulato.com",
+  ),
   interactive3d: readEnvUrl(
     "VITE_INTERACTIVE3D_URL",
+    5185,
     "https://interactive3d.jaggerbrulato.com",
   ),
-  design: readEnvUrl("VITE_DESIGN_URL", "https://design.jaggerbrulato.com"),
-  editor: readEnvUrl("VITE_EDITOR_URL", "https://editor.jaggerbrulato.com"),
-  finance: readEnvUrl("VITE_FINANCE_URL", "https://finance.jaggerbrulato.com"),
 } as const;
 
 function joinUrl(base: string, path = ""): string {
