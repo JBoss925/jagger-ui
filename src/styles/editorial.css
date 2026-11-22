@@ -1218,3 +1218,38 @@
 .papers-page--dark .papers-header,.papers-page--dark .docs-header { background:#211a2a; border-color:#493950; }
 .papers-page--dark .docs-header__mark,.papers-page--dark .docs-header__theme,.papers-page--dark .docs-header__menu { background:#352a43; border-color:#725985; }
 .papers-page--dark .docs-header nav a:hover,.papers-page--dark .docs-header nav a[aria-current="page"] { background:#40304f; }
+
+/* Unified EditorialHeader nav polish & mobile docs sidebar support */
+.library-reader-nav a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.84;
+  transition: opacity 160ms ease;
+}
+.library-reader-nav a:hover,
+.library-reader-nav a[aria-current="page"] {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.papers-header__sidebar {
+  display: none;
+}
+@media (max-width: 900px) {
+  .papers-header--expanded .papers-header__sidebar {
+    display: block;
+    flex: 0 0 100%;
+    width: 100%;
+    margin-top: 8px;
+  }
+  .papers-header .docs-sidebar {
+    position: static;
+    max-height: 55dvh;
+    overflow-y: auto;
+    padding: 18px;
+    color: var(--paper-text);
+    background: var(--paper-surface);
+    border: 1px solid var(--paper-line);
+    border-radius: 8px;
+  }
+}
