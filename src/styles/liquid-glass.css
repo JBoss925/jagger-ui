@@ -1,0 +1,1413 @@
+/* ==========================================================================
+   Studio Light Theme — Apple Liquid Glass × Pastel Lavender-Amethyst
+   Scoped strictly to `.studio-theme-light` (GeneticTS, Rengine) and
+   `.games-page` (Jagger Games hub + all 6 games).
+   OJaml and JaggerScript intentionally remain on the dark black-and-green theme.
+   ========================================================================== */
+
+.page-shell.studio-theme-light,
+.page-shell.games-page {
+  --bg: #f4eefc;
+  --bg-soft: rgba(255, 255, 255, 0.78);
+  --panel: rgba(255, 255, 255, 0.82);
+  --panel-strong: rgba(255, 255, 255, 0.94);
+  --line: rgba(132, 102, 196, 0.18);
+  --line-strong: rgba(108, 72, 184, 0.36);
+  --text: #1b1328;
+  --text-main: #1b1328;
+  --text-dim: #4e4163;
+  --muted: #726488;
+  --accent: #6c48b8;
+  --accent-2: #8660d8;
+  --accent-3: #4e2e94;
+  --shadow:
+    0 22px 50px -16px rgba(64, 38, 118, 0.14),
+    0 4px 14px rgba(64, 38, 118, 0.06);
+  --glass-bg: linear-gradient(
+    152deg,
+    rgba(255, 255, 255, 0.86) 0%,
+    rgba(252, 248, 255, 0.68) 52%,
+    rgba(241, 233, 255, 0.78) 100%
+  );
+  --glass-bg-strong: linear-gradient(
+    155deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(252, 249, 255, 0.82) 54%,
+    rgba(243, 236, 255, 0.88) 100%
+  );
+  --glass-shadow:
+    0 22px 50px -16px rgba(64, 38, 118, 0.14),
+    0 4px 14px rgba(64, 38, 118, 0.06),
+    inset 0 1.5px 1px rgba(255, 255, 255, 0.96),
+    inset 0 -1px 1px rgba(154, 122, 218, 0.16),
+    0 0 0 1px rgba(132, 102, 196, 0.14);
+  --glass-shadow-sm:
+    0 10px 24px -10px rgba(64, 38, 118, 0.12),
+    0 2px 8px rgba(64, 38, 118, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96),
+    0 0 0 1px rgba(132, 102, 196, 0.15);
+  --radius-xl: 24px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+
+  color-scheme: light;
+  color: var(--text);
+  background: radial-gradient(circle at 20% 14%, #fdfbff 0%, #f0e7fc 48%, #e5dbf7 100%);
+}
+
+.page-shell.studio-theme-light::after,
+.page-shell.games-page::after {
+  background: transparent;
+}
+
+/* ---------- Soft Lavender Atmosphere Backdrop ---------- */
+
+.page-shell.studio-theme-light .scene-static,
+.page-shell.games-page .scene-static {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.92), transparent 44%),
+    radial-gradient(circle at 86% 18%, rgba(203, 180, 252, 0.34), transparent 38%),
+    radial-gradient(circle at 72% 86%, rgba(182, 152, 246, 0.24), transparent 42%),
+    linear-gradient(160deg, #fdfbff 0%, #f2eafd 52%, #e6dcf8 100%);
+}
+
+.page-shell.studio-theme-light .scene-static__gradient,
+.page-shell.games-page .scene-static__gradient {
+  background:
+    radial-gradient(circle at 16% 24%, rgba(167, 139, 250, 0.16), transparent 36%),
+    radial-gradient(circle at 84% 72%, rgba(244, 182, 214, 0.16), transparent 34%);
+}
+
+.page-shell.studio-theme-light .scene-static__grid,
+.page-shell.games-page .scene-static__grid {
+  background-image:
+    linear-gradient(rgba(108, 72, 184, 0.048) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 72, 184, 0.048) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ---------- Shared Liquid Glass Primitives ---------- */
+
+.page-shell.studio-theme-light .glass-card,
+.page-shell.games-page .glass-card {
+  background: var(--glass-bg);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(22px) saturate(165%);
+  -webkit-backdrop-filter: blur(22px) saturate(165%);
+}
+
+.page-shell.studio-theme-light .section-heading__eyebrow,
+.page-shell.games-page .section-heading__eyebrow {
+  color: var(--accent);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+}
+
+.page-shell.studio-theme-light .cta-button,
+.page-shell.games-page .cta-button {
+  border-radius: 999px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #8660d8 0%, #633eb5 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-weight: 650;
+  box-shadow:
+    0 10px 24px -8px rgba(108, 72, 184, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.page-shell.studio-theme-light .cta-button:hover,
+.page-shell.games-page .cta-button:hover,
+.page-shell.studio-theme-light .cta-button:focus-visible,
+.page-shell.games-page .cta-button:focus-visible {
+  box-shadow:
+    0 14px 28px -8px rgba(108, 72, 184, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+.page-shell.studio-theme-light .cta-button:disabled,
+.page-shell.games-page .cta-button:disabled {
+  opacity: 0.48;
+  transform: none;
+  box-shadow: none;
+}
+
+.page-shell.studio-theme-light .cta-button--secondary,
+.page-shell.games-page .cta-button--secondary,
+.page-shell.games-page .button,
+.page-shell.games-page .button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(132, 102, 196, 0.24);
+  color: var(--text);
+  font-weight: 650;
+  cursor: pointer;
+  box-shadow:
+    0 6px 16px -8px rgba(64, 38, 118, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.98);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.page-shell.studio-theme-light .cta-button--secondary:hover,
+.page-shell.games-page .cta-button--secondary:hover,
+.page-shell.games-page .button:hover,
+.page-shell.games-page .button-secondary:hover,
+.page-shell.studio-theme-light .cta-button--secondary:focus-visible,
+.page-shell.games-page .cta-button--secondary:focus-visible,
+.page-shell.games-page .button:focus-visible,
+.page-shell.games-page .button-secondary:focus-visible {
+  background: #ffffff;
+  border-color: rgba(108, 72, 184, 0.42);
+  color: var(--accent-3);
+  box-shadow:
+    0 10px 22px -8px rgba(64, 38, 118, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.page-shell.studio-theme-light .chip,
+.page-shell.games-page .chip {
+  background: rgba(108, 72, 184, 0.09);
+  border: 1px solid rgba(108, 72, 184, 0.2);
+  color: var(--accent-3);
+  border-radius: 999px;
+}
+
+/* ---------- SiteNavigation in Light Liquid Glass (Direct Visits) ---------- */
+
+.page-shell.studio-theme-light .site-nav-shell::before {
+  background: linear-gradient(180deg, rgba(249, 245, 255, 0.92), rgba(244, 237, 254, 0.72));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.page-shell.studio-theme-light .site-nav-shell::after {
+  background: linear-gradient(
+    180deg,
+    rgba(244, 237, 254, 0.56) 0%,
+    rgba(244, 237, 254, 0.18) 65%,
+    rgba(244, 237, 254, 0) 100%
+  );
+}
+
+.page-shell.studio-theme-light .site-nav {
+  background: var(--glass-bg-strong);
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.page-shell.studio-theme-light .site-nav__brand-mark {
+  border-color: rgba(132, 102, 196, 0.28);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+}
+
+.page-shell.studio-theme-light .site-nav__toggle {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(132, 102, 196, 0.24);
+  color: var(--text);
+}
+
+.page-shell.studio-theme-light .site-nav__link {
+  border-radius: 999px;
+  color: var(--text-dim);
+  font-weight: 560;
+}
+
+.page-shell.studio-theme-light .site-nav__link:hover,
+.page-shell.studio-theme-light .site-nav__link:focus-visible,
+.page-shell.studio-theme-light .site-nav__link.is-active {
+  background: rgba(108, 72, 184, 0.12);
+  color: var(--accent-3);
+}
+
+.page-shell.studio-theme-light .site-nav__button {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #8660d8 0%, #633eb5 100%);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.page-shell.studio-theme-light .site-nav__button--ghost {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(132, 102, 196, 0.24);
+  color: var(--text);
+}
+
+/* ==========================================================================
+   RENGINE — Liquid Glass × Lavender Styling
+   ========================================================================== */
+
+.page-shell.rengine-page .ide-workspace {
+  padding: 26px;
+}
+
+.page-shell.rengine-page .ide-workspace__title {
+  color: var(--text);
+  letter-spacing: -0.03em;
+  font-weight: 760;
+}
+
+.page-shell.rengine-page .ide-example-rail__nav {
+  border-radius: 999px;
+  border: 1px solid rgba(132, 102, 196, 0.24);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  box-shadow: 0 8px 20px -6px rgba(64, 38, 118, 0.16);
+}
+
+.page-shell.rengine-page .ide-example-rail__nav:hover:not(:disabled) {
+  border-color: rgba(108, 72, 184, 0.44);
+  background: #ffffff;
+  color: var(--accent-3);
+}
+
+.page-shell.rengine-page .example-card {
+  border-radius: 18px;
+  border: 1px solid rgba(132, 102, 196, 0.2);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+  box-shadow:
+    0 6px 18px -10px rgba(64, 38, 118, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96);
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.page-shell.rengine-page .example-card strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.page-shell.rengine-page .example-card span {
+  color: var(--text-dim);
+}
+
+.page-shell.rengine-page .example-card:hover,
+.page-shell.rengine-page .example-card:focus-visible {
+  border-color: rgba(108, 72, 184, 0.38);
+  background: #ffffff;
+  box-shadow: 0 12px 24px -10px rgba(64, 38, 118, 0.18);
+}
+
+.page-shell.rengine-page .example-card.is-active {
+  border-color: rgba(108, 72, 184, 0.52);
+  background: linear-gradient(145deg, rgba(134, 96, 216, 0.16), rgba(255, 255, 255, 0.96));
+  box-shadow:
+    0 12px 26px -10px rgba(108, 72, 184, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.page-shell.rengine-page .example-card.is-active strong {
+  color: var(--accent-3);
+}
+
+.page-shell.rengine-page .rengine-zoom-controls {
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(132, 102, 196, 0.18);
+}
+
+.page-shell.rengine-page .rengine-zoom-controls .cta-button {
+  min-width: 34px;
+  height: 34px;
+  padding: 0;
+}
+
+.page-shell.rengine-page .rengine-zoom-controls > span {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.page-shell.rengine-page .rengine-wireframe-toggle {
+  height: 42px;
+}
+
+.page-shell.rengine-page .rengine-wireframe-toggle.is-active {
+  background: linear-gradient(135deg, #8660d8 0%, #633eb5 100%);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  box-shadow: 0 10px 24px -8px rgba(108, 72, 184, 0.44);
+}
+
+.page-shell.rengine-page .rengine-stage {
+  border-radius: 22px;
+  border: 1px solid rgba(132, 102, 196, 0.22);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(167, 139, 250, 0.14), transparent 32%),
+    linear-gradient(180deg, #ffffff, #f5f0fe);
+  box-shadow:
+    inset 0 2px 10px rgba(64, 38, 118, 0.05),
+    0 12px 28px -14px rgba(64, 38, 118, 0.16);
+}
+
+.page-shell.rengine-page .rengine-detail-copy {
+  border-radius: 22px;
+  border: 1px solid rgba(132, 102, 196, 0.18);
+  background: rgba(255, 255, 255, 0.84);
+  color: var(--text);
+  padding: 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.page-shell.rengine-page .rengine-detail-section__label {
+  color: var(--accent);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 600;
+}
+
+.page-shell.rengine-page .rengine-detail-section p {
+  color: var(--text-dim);
+}
+
+.page-shell.rengine-page .rengine-legend__item {
+  border-radius: 14px;
+  border: 1px solid rgba(132, 102, 196, 0.16);
+  background: rgba(248, 244, 255, 0.86);
+  padding: 10px 12px;
+}
+
+.page-shell.rengine-page .rengine-legend__item strong {
+  color: var(--text);
+}
+
+.page-shell.rengine-page .rengine-legend__swatch--relationship {
+  background: #1b1328;
+  box-shadow: 0 0 0 2px rgba(108, 72, 184, 0.22);
+}
+
+.page-shell.rengine-page .rengine-tree {
+  border-radius: 20px;
+  border: 1px solid rgba(132, 102, 196, 0.18);
+  background: rgba(255, 255, 255, 0.78);
+  padding: 14px;
+}
+
+.page-shell.rengine-page .rengine-tree__branch {
+  border-left: 2px solid rgba(132, 102, 196, 0.24);
+}
+
+.page-shell.rengine-page .rengine-tree__node {
+  border-radius: 16px;
+  border: 1px solid rgba(132, 102, 196, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 12px -6px rgba(64, 38, 118, 0.08);
+  padding: 12px 14px;
+}
+
+.page-shell.rengine-page .rengine-tree__toggle {
+  border: 1px solid rgba(132, 102, 196, 0.24);
+  border-radius: 8px;
+  background: rgba(246, 240, 254, 0.9);
+  color: var(--accent-3);
+}
+
+.page-shell.rengine-page .rengine-tree__toggle:hover {
+  border-color: rgba(108, 72, 184, 0.44);
+  background: rgba(108, 72, 184, 0.14);
+}
+
+.page-shell.rengine-page .rengine-tree__color::before {
+  box-shadow: 0 0 0 1.5px rgba(27, 19, 40, 0.14);
+}
+
+.page-shell.rengine-page .rengine-tree__space-toggle {
+  border-radius: 999px;
+  border: 1px solid rgba(108, 72, 184, 0.28);
+  background: rgba(108, 72, 184, 0.1);
+  color: var(--accent-3);
+  font-weight: 600;
+  padding: 5px 12px;
+}
+
+.page-shell.rengine-page .rengine-tree__space-toggle:hover {
+  border-color: rgba(108, 72, 184, 0.46);
+  background: rgba(108, 72, 184, 0.18);
+}
+
+.page-shell.rengine-page .rengine-tree__metric-pill {
+  border-radius: 10px;
+  border: 1px solid rgba(132, 102, 196, 0.14);
+  background: rgba(248, 244, 255, 0.9);
+  color: var(--text-dim);
+}
+
+.page-shell.rengine-page .rengine-tree__metric-pill strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.page-shell.rengine-page .rengine-tree__metric-pill--position {
+  color: #15803d;
+}
+
+.page-shell.rengine-page .rengine-tree__metric-pill--position::before {
+  background: #22c55e;
+}
+
+.page-shell.rengine-page .rengine-tree__metric-pill--anchor {
+  color: #be123c;
+}
+
+.page-shell.rengine-page .rengine-tree__metric-pill--anchor::before {
+  background: #f43f5e;
+}
+
+.page-shell.rengine-page .rengine-tree__metric-pill--rotation {
+  color: #4e4163;
+}
+
+.page-shell.rengine-page .rengine-tree__metric-pill--rotation::before {
+  background: #1b1328;
+  box-shadow: 0 0 0 1.5px rgba(108, 72, 184, 0.25);
+}
+
+.page-shell.rengine-page .rengine-tree__metric-pill--scale {
+  color: #b45309;
+}
+
+.page-shell.rengine-page .rengine-tree__metric-pill--scale::before {
+  background: #f59e0b;
+}
+
+/* ==========================================================================
+   JAGGER GAMES — Full Liquid Glass × Pastel Lavender Makeover
+   ========================================================================== */
+
+/* ---------- Games Navigation ---------- */
+
+.page-shell.games-page .games-nav-shell {
+  padding: 14px 20px 0;
+}
+
+.page-shell.games-page .games-nav-shell::before {
+  background: linear-gradient(180deg, rgba(249, 245, 255, 0.86) 0%, rgba(249, 245, 255, 0) 100%);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.page-shell.games-page .games-nav {
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  background: var(--glass-bg-strong);
+  box-shadow: var(--glass-shadow-sm);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  padding: 10px 14px;
+}
+
+.page-shell.games-page .games-nav__brand {
+  color: var(--text);
+  text-shadow: none;
+  font-size: 1.56rem;
+  letter-spacing: -0.025em;
+}
+
+.page-shell.games-page .games-nav__brand strong {
+  background: linear-gradient(135deg, #271745 0%, #5b35ad 58%, #8660d8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-shell.games-page .games-nav__brand-mark {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.96);
+  background: linear-gradient(145deg, #ffffff 0%, #ede3fc 100%);
+  box-shadow:
+    0 6px 14px -4px rgba(108, 72, 184, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 0 0 1px rgba(132, 102, 196, 0.18);
+}
+
+.page-shell.games-page .games-nav__brand-shape--gold {
+  background: linear-gradient(135deg, #a78bfa, #6c48b8);
+}
+
+.page-shell.games-page .games-nav__brand-shape--teal {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+
+.page-shell.games-page .games-nav__brand-shape--ink {
+  background: linear-gradient(135deg, #34d399, #10b981);
+}
+
+.page-shell.games-page .games-nav__toggle {
+  border-radius: 12px;
+  border: 1px solid rgba(132, 102, 196, 0.22);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--text);
+}
+
+.page-shell.games-page .games-nav__link {
+  border-radius: 999px;
+  min-height: 38px;
+  padding: 0 15px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.56);
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.page-shell.games-page .games-nav__link:hover,
+.page-shell.games-page .games-nav__link:focus-visible {
+  color: var(--accent-3);
+  border-color: rgba(132, 102, 196, 0.26);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 6px 16px -8px rgba(64, 38, 118, 0.16);
+}
+
+.page-shell.games-page .games-nav__link.is-active {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #8660d8 0%, #633eb5 100%);
+  box-shadow:
+    0 10px 22px -6px rgba(108, 72, 184, 0.44),
+    inset 0 1px 0 rgba(255, 255, 255, 0.36);
+}
+
+/* ---------- Games Hub Hero & Art Showcase ---------- */
+
+.page-shell.games-page .games-hero {
+  padding: 26px 0 16px;
+}
+
+.page-shell.games-page .games-hero h1,
+.page-shell.games-page .games-section-intro h1 {
+  color: var(--text);
+  text-shadow: none;
+  letter-spacing: -0.035em;
+  font-weight: 780;
+}
+
+.page-shell.games-page .games-hero p,
+.page-shell.games-page .games-section-intro p {
+  color: var(--text-dim);
+  font-size: 1.06rem;
+}
+
+.page-shell.games-page .games-hero__art {
+  min-height: 274px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  background:
+    radial-gradient(circle at 24% 24%, rgba(167, 139, 250, 0.28), transparent 44%),
+    radial-gradient(circle at 78% 28%, rgba(251, 191, 36, 0.2), transparent 36%),
+    radial-gradient(circle at 68% 82%, rgba(52, 211, 153, 0.18), transparent 40%),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.88) 0%, rgba(244, 236, 255, 0.78) 100%);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(22px) saturate(175%);
+  -webkit-backdrop-filter: blur(22px) saturate(175%);
+}
+
+.page-shell.games-page .games-hero__art::before,
+.page-shell.games-page .games-hero__art::after {
+  border: 1.5px dashed rgba(108, 72, 184, 0.22);
+}
+
+.page-shell.games-page .games-hero__orb--large {
+  background:
+    radial-gradient(circle at 34% 30%, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.22) 26%, transparent 48%),
+    linear-gradient(145deg, #d8c6ff 0%, #9b77eb 48%, #6c48b8 100%);
+  box-shadow:
+    0 0 0 16px rgba(134, 96, 216, 0.09),
+    0 24px 38px -10px rgba(108, 72, 184, 0.34);
+}
+
+.page-shell.games-page .games-hero__orb--small {
+  background:
+    radial-gradient(circle at 36% 32%, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.2) 26%, transparent 46%),
+    linear-gradient(155deg, #fde68a 0%, #f59e0b 60%, #e11d48 100%);
+  box-shadow:
+    0 0 0 12px rgba(245, 158, 11, 0.08),
+    0 18px 28px -8px rgba(217, 119, 6, 0.28);
+}
+
+.page-shell.games-page .games-hero__chip {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 14px 28px -8px rgba(64, 38, 118, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 0 0 1px rgba(132, 102, 196, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+.page-shell.games-page .games-hero__chip--jordle span {
+  border-radius: 6px;
+  border: 1px solid rgba(132, 102, 196, 0.2);
+  background: #f3ecfc;
+}
+
+.page-shell.games-page .games-hero__chip--jordle span:nth-child(2) {
+  border-color: transparent;
+  background: linear-gradient(135deg, #34d399, #10b981);
+}
+
+.page-shell.games-page .games-hero__chip--jordle span:nth-child(4) {
+  border-color: transparent;
+  background: linear-gradient(135deg, #fbbf24, #d97706);
+}
+
+.page-shell.games-page .games-hero__chip--domes span {
+  border-radius: 6px;
+  background: linear-gradient(180deg, #b898f8 0%, #6c48b8 100%);
+}
+
+.page-shell.games-page .games-hero__chip--jolor span {
+  border-radius: 999px;
+}
+
+.page-shell.games-page .games-hero__chip--jolor span:nth-child(1) {
+  background: linear-gradient(180deg, #fb7185, #e11d48);
+}
+.page-shell.games-page .games-hero__chip--jolor span:nth-child(2) {
+  background: linear-gradient(180deg, #fbbf24, #d97706);
+}
+.page-shell.games-page .games-hero__chip--jolor span:nth-child(3) {
+  background: linear-gradient(180deg, #34d399, #059669);
+}
+.page-shell.games-page .games-hero__chip--jolor span:nth-child(4) {
+  background: linear-gradient(180deg, #60a5fa, #2563eb);
+}
+.page-shell.games-page .games-hero__chip--jolor span:nth-child(5) {
+  background: linear-gradient(180deg, #c084fc, #7c3aed);
+}
+
+/* ---------- Games Hub 6-Card Grid ---------- */
+
+.page-shell.games-page .games-grid {
+  gap: 18px;
+}
+
+.page-shell.games-page .games-card {
+  padding: 24px;
+  border-radius: 24px;
+}
+
+.page-shell.games-page .games-card--link {
+  min-height: 234px;
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  background: var(--glass-bg);
+  box-shadow: var(--glass-shadow);
+  transition:
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.page-shell.games-page .games-card--link::before {
+  background: radial-gradient(circle, rgba(134, 96, 216, 0.16), transparent 68%);
+  opacity: 0.78;
+}
+
+.page-shell.games-page .games-card--link:hover,
+.page-shell.games-page .games-card--link:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 1);
+  background: var(--glass-bg-strong);
+  box-shadow:
+    0 28px 54px -16px rgba(64, 38, 118, 0.2),
+    0 6px 18px rgba(64, 38, 118, 0.08),
+    inset 0 1.5px 1px rgba(255, 255, 255, 1),
+    0 0 0 1px rgba(108, 72, 184, 0.28);
+}
+
+.page-shell.games-page .games-card h2 {
+  color: var(--text);
+  font-weight: 740;
+  letter-spacing: -0.02em;
+}
+
+.page-shell.games-page .games-card p {
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+
+.page-shell.games-page .games-card__icon {
+  width: 60px;
+  height: 60px;
+  flex: 0 0 60px;
+  aspect-ratio: 1 / 1;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 10px 22px -8px rgba(64, 38, 118, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 0 0 1px rgba(132, 102, 196, 0.12);
+}
+
+.page-shell.games-page .games-card__icon::after {
+  background: radial-gradient(circle at 28% 24%, rgba(255, 255, 255, 0.8), transparent 55%);
+}
+
+.page-shell.games-page .games-card__icon--domes {
+  color: #d97706;
+  background: linear-gradient(145deg, #fffbeb 0%, #fef3c7 100%);
+}
+
+.page-shell.games-page .games-card__icon--jordle {
+  color: #059669;
+  background: linear-gradient(145deg, #ecfdf5 0%, #d1fae5 100%);
+}
+
+.page-shell.games-page .games-card__icon--jolor {
+  color: #9333ea;
+  background: linear-gradient(145deg, #faf5ff 0%, #f3e8ff 100%);
+}
+
+.page-shell.games-page .games-card__icon--jinx {
+  color: #e11d48;
+  background: linear-gradient(145deg, #fff1f2 0%, #ffe4e6 100%);
+}
+
+.page-shell.games-page .games-card__icon--judoku {
+  color: #4f46e5;
+  background: linear-gradient(145deg, #eef2ff 0%, #e0e7ff 100%);
+}
+
+.page-shell.games-page .games-card__icon--jigsaw {
+  color: #ca8a04;
+  background: linear-gradient(145deg, #fefce8 0%, #fef9c3 100%);
+}
+
+.page-shell.games-page .games-card__meta {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.page-shell.games-page .domes-hero__icon,
+.page-shell.games-page .jordle-hero__icon,
+.page-shell.games-page .jolor-hero__icon {
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
+  aspect-ratio: 1 / 1;
+  border-radius: 22px;
+  box-shadow:
+    0 14px 28px -10px rgba(64, 38, 118, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    0 0 0 1px rgba(132, 102, 196, 0.16);
+}
+
+.page-shell.games-page .domes-hero__icon svg,
+.page-shell.games-page .jordle-hero__icon svg,
+.page-shell.games-page .jolor-hero__icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.page-shell.games-page .domes-hero h1,
+.page-shell.games-page .jordle-hero h1,
+.page-shell.games-page .jolor-hero h1 {
+  margin: 0;
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .page-shell.games-page .domes-hero__icon,
+  .page-shell.games-page .jordle-hero__icon,
+  .page-shell.games-page .jolor-hero__icon {
+    width: 60px;
+    height: 60px;
+    flex: 0 0 60px;
+    border-radius: 18px;
+  }
+
+  .page-shell.games-page .domes-hero__icon svg,
+  .page-shell.games-page .jordle-hero__icon svg,
+  .page-shell.games-page .jolor-hero__icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .page-shell.games-page .domes-hero h1,
+  .page-shell.games-page .jordle-hero h1,
+  .page-shell.games-page .jolor-hero h1 {
+    font-size: 3.2rem;
+  }
+}
+
+/* ---------- DOMES (Light Marble & Amethyst Board) ---------- */
+
+.page-shell.games-page .domes-board-card,
+.page-shell.games-page .domes-status-card {
+  padding: 26px;
+  background: var(--glass-bg);
+}
+
+.page-shell.games-page .domes-cell {
+  border-radius: 18px;
+  border: 1px solid rgba(132, 102, 196, 0.2);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 238, 254, 0.92));
+  box-shadow:
+    0 6px 14px -8px rgba(64, 38, 118, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.page-shell.games-page .domes-cell:hover,
+.page-shell.games-page .domes-cell:focus-visible {
+  border-color: rgba(108, 72, 184, 0.42);
+  box-shadow:
+    0 12px 22px -8px rgba(108, 72, 184, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.page-shell.games-page .domes-cell.is-selectable {
+  border-color: rgba(217, 119, 6, 0.65);
+  background: linear-gradient(180deg, #fffdf7 0%, #fef3d8 100%);
+  box-shadow:
+    0 0 0 2px rgba(245, 158, 11, 0.28),
+    0 12px 24px -8px rgba(217, 119, 6, 0.22);
+}
+
+.page-shell.games-page .domes-cell.is-selected {
+  border-color: rgba(108, 72, 184, 0.78);
+  background: linear-gradient(180deg, #fcfaff 0%, #eadffb 100%);
+  box-shadow:
+    0 0 0 2px rgba(134, 96, 216, 0.32),
+    0 14px 26px -8px rgba(108, 72, 184, 0.28);
+}
+
+.page-shell.games-page .domes-cell__grid {
+  background:
+    linear-gradient(90deg, rgba(108, 72, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(108, 72, 184, 0.06) 1px, transparent 1px);
+  background-size: 100% 24px, 24px 100%;
+  opacity: 0.65;
+}
+
+.page-shell.games-page .domes-cell__base {
+  background: linear-gradient(180deg, rgba(132, 102, 196, 0.16), rgba(108, 72, 184, 0.08));
+}
+
+.page-shell.games-page .domes-cell__tower-level {
+  border: 1px solid rgba(180, 130, 74, 0.28);
+  background: linear-gradient(180deg, #fff6e8 0%, #e6c697 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 2px 5px rgba(90, 56, 20, 0.14);
+}
+
+.page-shell.games-page .domes-cell__dome-cap {
+  border: 1px solid rgba(108, 72, 184, 0.34);
+  background:
+    radial-gradient(circle at 38% 28%, rgba(255, 255, 255, 0.8), transparent 34%),
+    linear-gradient(180deg, #9d7bf0 0%, #5b35ad 100%);
+  box-shadow: 0 10px 18px -4px rgba(64, 38, 118, 0.32);
+}
+
+.page-shell.games-page .domes-cell__worker-body {
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 8px 16px -3px rgba(27, 19, 40, 0.28);
+}
+
+.page-shell.games-page .domes-cell.has-worker--sun .domes-cell__worker-body,
+.page-shell.games-page .domes-player-card__token--sun {
+  background: linear-gradient(145deg, #fcd34d 0%, #ea580c 100%);
+}
+
+.page-shell.games-page .domes-cell.has-worker--sea .domes-cell__worker-body,
+.page-shell.games-page .domes-player-card__token--sea {
+  background: linear-gradient(145deg, #5eead4 0%, #0d9488 100%);
+}
+
+.page-shell.games-page .domes-player-card {
+  border-radius: 16px;
+  border: 1px solid rgba(132, 102, 196, 0.18);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.page-shell.games-page .domes-player-card.is-active {
+  border-color: rgba(108, 72, 184, 0.44);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(242, 234, 255, 0.94));
+  box-shadow:
+    0 0 0 1px rgba(108, 72, 184, 0.2),
+    0 10px 22px -10px rgba(108, 72, 184, 0.22);
+}
+
+.page-shell.games-page .domes-player-card__token {
+  box-shadow: 0 0 0 2px #ffffff, 0 3px 8px rgba(27, 19, 40, 0.18);
+}
+
+.page-shell.games-page .domes-player-card__state.is-blocked {
+  color: #c2410c;
+  font-weight: 600;
+}
+
+/* ---------- JORDLE (Board, Keyboard, Help & Modals) ---------- */
+
+.page-shell.games-page .jordle-board-card,
+.page-shell.games-page .jordle-keyboard-card {
+  padding: 26px;
+  border-radius: 26px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(22px) saturate(165%);
+  -webkit-backdrop-filter: blur(22px) saturate(165%);
+}
+
+.page-shell.games-page .jordle-board-card__meta-divider {
+  color: rgba(108, 72, 184, 0.36);
+}
+
+.page-shell.games-page .jordle-help-button {
+  border: 1px solid rgba(132, 102, 196, 0.24);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--text);
+  box-shadow: 0 6px 14px -6px rgba(64, 38, 118, 0.14);
+}
+
+.page-shell.games-page .jordle-help-button:hover,
+.page-shell.games-page .jordle-help-button:focus-visible {
+  border-color: rgba(108, 72, 184, 0.48);
+  background: #ffffff;
+  color: var(--accent-3);
+  box-shadow: 0 12px 24px -8px rgba(108, 72, 184, 0.24);
+}
+
+.page-shell.games-page .jordle-help-button__tooltip {
+  border: 1px solid rgba(132, 102, 196, 0.22);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--text);
+  box-shadow: 0 14px 28px -8px rgba(64, 38, 118, 0.2);
+}
+
+.page-shell.games-page .jordle-tile {
+  border-radius: clamp(10px, 1.3vw, 14px);
+  border: 1.5px solid rgba(132, 102, 196, 0.24);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  box-shadow:
+    0 4px 10px -6px rgba(64, 38, 118, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.page-shell.games-page .jordle-tile.is-empty {
+  background: rgba(255, 255, 255, 0.64);
+  border-color: rgba(132, 102, 196, 0.16);
+  color: rgba(78, 65, 99, 0.35);
+}
+
+.page-shell.games-page .jordle-tile.is-miss {
+  background: linear-gradient(145deg, #8e85a1 0%, #766d8a 100%);
+  border-color: rgba(118, 109, 138, 0.5);
+  color: #ffffff;
+}
+
+.page-shell.games-page .jordle-tile.is-present {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  border-color: rgba(202, 138, 4, 0.5);
+  color: #ffffff;
+  box-shadow: 0 8px 18px -6px rgba(202, 138, 4, 0.38);
+}
+
+.page-shell.games-page .jordle-tile.is-correct {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  border-color: rgba(22, 163, 74, 0.5);
+  color: #ffffff;
+  box-shadow: 0 8px 18px -6px rgba(22, 163, 74, 0.36);
+}
+
+.page-shell.games-page .jordle-key {
+  border-radius: clamp(8px, 1vw, 12px);
+  border: 1px solid rgba(132, 102, 196, 0.22);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  box-shadow:
+    0 4px 10px -5px rgba(64, 38, 118, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.page-shell.games-page .jordle-key:hover,
+.page-shell.games-page .jordle-key:focus-visible {
+  background: #ffffff;
+  border-color: rgba(108, 72, 184, 0.42);
+}
+
+.page-shell.games-page .jordle-key.is-miss {
+  background: #9d94b0;
+  border-color: #8b81a0;
+  color: #ffffff;
+}
+
+.page-shell.games-page .jordle-key.is-present {
+  background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+  border-color: rgba(202, 138, 4, 0.5);
+  color: #ffffff;
+}
+
+.page-shell.games-page .jordle-key.is-correct {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  border-color: rgba(22, 163, 74, 0.5);
+  color: #ffffff;
+}
+
+/* ---------- Shared Game Modals & Archive Lists ---------- */
+
+.page-shell.games-page .jordle-modal {
+  background: rgba(27, 19, 40, 0.34);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.page-shell.games-page .jordle-modal__card {
+  border-radius: 28px;
+  background: var(--glass-bg-strong);
+  border: 1px solid rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 32px 72px -18px rgba(42, 22, 82, 0.28),
+    inset 0 1.5px 1px rgba(255, 255, 255, 1),
+    0 0 0 1px rgba(132, 102, 196, 0.18);
+  color: var(--text);
+}
+
+.page-shell.games-page .jordle-modal__close {
+  border: 1px solid rgba(132, 102, 196, 0.22);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+}
+
+.page-shell.games-page .jordle-modal__close:hover {
+  background: #ffffff;
+  border-color: rgba(108, 72, 184, 0.42);
+  color: var(--accent-3);
+}
+
+.page-shell.games-page .jordle-summary-stat {
+  border-radius: 16px;
+  border: 1px solid rgba(132, 102, 196, 0.18);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.page-shell.games-page .jordle-archive-item {
+  border-radius: 16px;
+  border: 1px solid rgba(132, 102, 196, 0.18);
+  background: rgba(255, 255, 255, 0.84);
+  color: var(--text);
+}
+
+.page-shell.games-page .jordle-archive-item:hover,
+.page-shell.games-page .jordle-archive-item:focus-visible {
+  border-color: rgba(108, 72, 184, 0.42);
+  background: #ffffff;
+  box-shadow: 0 12px 24px -10px rgba(64, 38, 118, 0.16);
+}
+
+.page-shell.games-page .jordle-archive-item.is-active {
+  border-color: rgba(108, 72, 184, 0.5);
+  background: linear-gradient(145deg, rgba(134, 96, 216, 0.12), rgba(255, 255, 255, 0.96));
+}
+
+.page-shell.games-page .jordle-archive-chip {
+  border: 1px solid rgba(132, 102, 196, 0.2);
+  background: rgba(246, 240, 254, 0.9);
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.page-shell.games-page .jordle-archive-chip.is-solved {
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(22, 163, 74, 0.34);
+  color: #15803d;
+}
+
+.page-shell.games-page .jordle-archive-chip.is-failed {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: rgba(217, 119, 6, 0.34);
+  color: #b45309;
+}
+
+.page-shell.games-page .jordle-archive-chip.is-progress {
+  background: rgba(108, 72, 184, 0.12);
+  border-color: rgba(108, 72, 184, 0.3);
+  color: var(--accent-3);
+}
+
+/* ---------- JOLOR (Color-Accurate Pearl Glass Frame) ---------- */
+
+.page-shell.games-page .jolor-board-card {
+  padding: 26px;
+}
+
+.page-shell.games-page .jolor-preview__surface {
+  border-radius: 22px;
+  border: 4px solid #ffffff;
+  box-shadow:
+    0 16px 32px -12px rgba(64, 38, 118, 0.2),
+    0 0 0 1px rgba(132, 102, 196, 0.2);
+}
+
+.page-shell.games-page .jolor-preview__surface::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 36%);
+}
+
+.page-shell.games-page .jolor-preview__surface::after {
+  opacity: 0.08;
+}
+
+.page-shell.games-page .jolor-preview__label,
+.page-shell.games-page .jolor-preview__countdown {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.96);
+  color: var(--text);
+  box-shadow: 0 10px 24px -6px rgba(27, 19, 40, 0.22);
+}
+
+.page-shell.games-page .jolor-control input {
+  border-radius: 14px;
+  border: 1px solid rgba(132, 102, 196, 0.24);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: inset 0 1px 2px rgba(64, 38, 118, 0.05);
+}
+
+.page-shell.games-page .jolor-control input:focus-visible {
+  outline: 2px solid rgba(108, 72, 184, 0.45);
+  outline-offset: 2px;
+  border-color: var(--accent);
+}
+
+.page-shell.games-page .jolor-guess-card,
+.page-shell.games-page .jolor-summary-answer {
+  border-radius: 16px;
+  border: 1px solid rgba(132, 102, 196, 0.18);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 6px 16px -10px rgba(64, 38, 118, 0.14);
+}
+
+.page-shell.games-page .jolor-guess-card__swatch,
+.page-shell.games-page .jolor-summary-answer__swatch {
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 10px rgba(27, 19, 40, 0.14);
+}
+
+.page-shell.games-page .jolor-empty-state {
+  border-radius: 16px;
+  border: 1.5px dashed rgba(132, 102, 196, 0.26);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+/* ---------- JINX (Tactile Frosted Minesweeper) ---------- */
+
+.page-shell.games-page .jinx-board-card {
+  padding: 26px;
+}
+
+.page-shell.games-page .jinx-difficulty-toggle button {
+  border-radius: 16px;
+  border: 1px solid rgba(132, 102, 196, 0.2);
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--text);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
+}
+
+.page-shell.games-page .jinx-difficulty-toggle button.is-active {
+  border-color: rgba(108, 72, 184, 0.48);
+  background: linear-gradient(145deg, rgba(134, 96, 216, 0.16), rgba(255, 255, 255, 0.96));
+  box-shadow: 0 8px 20px -10px rgba(108, 72, 184, 0.26);
+}
+
+.page-shell.games-page .jinx-mode-toggle {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(132, 102, 196, 0.2);
+  box-shadow: inset 0 1px 2px rgba(64, 38, 118, 0.06);
+}
+
+.page-shell.games-page .jinx-mode-toggle button {
+  color: var(--text-dim);
+}
+
+.page-shell.games-page .jinx-mode-toggle button.is-active {
+  background: linear-gradient(135deg, #8660d8 0%, #633eb5 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 14px -4px rgba(108, 72, 184, 0.4);
+}
+
+.page-shell.games-page .jinx-cell {
+  border-radius: 12px;
+  border: 1px solid rgba(132, 102, 196, 0.24);
+  background: linear-gradient(160deg, #ffffff 0%, #ede4fb 100%);
+  color: var(--text);
+  box-shadow:
+    0 4px 10px -4px rgba(64, 38, 118, 0.18),
+    inset 0 1.5px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 0 rgba(132, 102, 196, 0.18);
+}
+
+.page-shell.games-page .jinx-board--hard .jinx-cell {
+  border-radius: 8px;
+}
+
+.page-shell.games-page .jinx-cell:hover,
+.page-shell.games-page .jinx-cell:focus-visible {
+  border-color: rgba(108, 72, 184, 0.5);
+  background: linear-gradient(160deg, #ffffff 0%, #e4d7fa 100%);
+}
+
+.page-shell.games-page .jinx-cell.is-revealed {
+  background: rgba(255, 255, 255, 0.56);
+  border-color: rgba(132, 102, 196, 0.14);
+  color: var(--accent-3);
+  box-shadow: inset 0 1px 3px rgba(64, 38, 118, 0.08);
+}
+
+.page-shell.games-page .jinx-cell.is-flagged {
+  background: linear-gradient(145deg, #fff1f2 0%, #ffe4e6 100%);
+  border-color: rgba(225, 29, 72, 0.34);
+  color: #e11d48;
+}
+
+.page-shell.games-page .jinx-cell.is-mine {
+  background: linear-gradient(145deg, #fecdd3 0%, #fb7185 100%);
+  border-color: rgba(190, 18, 60, 0.55);
+  color: #881337;
+}
+
+.page-shell.games-page .jinx-cell.is-hinted {
+  box-shadow: 0 0 0 2.5px rgba(22, 163, 74, 0.72), 0 8px 18px -6px rgba(22, 163, 74, 0.32);
+}
+
+/* ---------- JUDOKU (Crisp 6×6 Subgrid Architecture) ---------- */
+
+.page-shell.games-page .judoku-board-card {
+  padding: 26px;
+}
+
+.page-shell.games-page .judoku-grid {
+  gap: 8px;
+}
+
+.page-shell.games-page .judoku-grid__row:nth-child(2),
+.page-shell.games-page .judoku-grid__row:nth-child(4) {
+  margin-bottom: 6px;
+}
+
+.page-shell.games-page .judoku-grid__row:nth-child(-n + 2) > .judoku-cell:nth-child(n + 4):not(.is-selected):not(.is-related):not(.is-invalid),
+.page-shell.games-page .judoku-grid__row:nth-child(n + 3):nth-child(-n + 4) > .judoku-cell:nth-child(-n + 3):not(.is-selected):not(.is-related):not(.is-invalid),
+.page-shell.games-page .judoku-grid__row:nth-child(n + 5) > .judoku-cell:nth-child(n + 4):not(.is-selected):not(.is-related):not(.is-invalid) {
+  background: rgba(246, 240, 255, 0.92);
+}
+
+.page-shell.games-page .judoku-cell {
+  border-radius: 14px;
+  border: 1.5px solid rgba(132, 102, 196, 0.2);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--text);
+  box-shadow:
+    0 4px 10px -6px rgba(64, 38, 118, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+.page-shell.games-page .judoku-cell.is-given {
+  background: rgba(242, 234, 255, 0.94);
+  color: var(--accent-3);
+}
+
+.page-shell.games-page .judoku-cell.is-related:not(.is-selected) {
+  background: rgba(134, 96, 216, 0.1);
+}
+
+.page-shell.games-page .judoku-cell.is-selected {
+  border-color: var(--accent);
+  background: rgba(134, 96, 216, 0.2);
+  box-shadow: 0 0 0 2px rgba(108, 72, 184, 0.24);
+}
+
+.page-shell.games-page .judoku-cell.is-invalid {
+  border-color: rgba(225, 29, 72, 0.65);
+  background: rgba(254, 226, 226, 0.92);
+  color: #be123c;
+}
+
+.page-shell.games-page .judoku-cell__notes {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.page-shell.games-page .judoku-pad__button {
+  border-radius: 14px;
+  border: 1px solid rgba(132, 102, 196, 0.22);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  box-shadow:
+    0 6px 14px -8px rgba(64, 38, 118, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.page-shell.games-page .judoku-pad__button:hover,
+.page-shell.games-page .judoku-pad__button:focus-visible {
+  background: #ffffff;
+  border-color: rgba(108, 72, 184, 0.44);
+  color: var(--accent-3);
+}
+
+/* ---------- JIGSAW (Gallery-Framed Tile Board) ---------- */
+
+.page-shell.games-page .jigsaw-board-card {
+  padding: 26px;
+}
+
+.page-shell.games-page .jigsaw-tile {
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.94);
+  background-color: rgba(244, 237, 254, 0.9);
+  box-shadow:
+    0 8px 18px -8px rgba(64, 38, 118, 0.2),
+    0 0 0 1px rgba(132, 102, 196, 0.16);
+}
+
+.page-shell.games-page .jigsaw-tile.is-selected {
+  border-color: #6c48b8;
+  box-shadow:
+    0 0 0 3px rgba(134, 96, 216, 0.34),
+    0 14px 28px -8px rgba(108, 72, 184, 0.36);
+}
+
+.page-shell.games-page .jigsaw-board.is-solved .jigsaw-tile {
+  box-shadow: 0 0 0 1.5px rgba(22, 163, 74, 0.36), 0 16px 32px -10px rgba(22, 163, 74, 0.18);
+}
+
+.page-shell.games-page .jigsaw-preview-overlay {
+  background: rgba(246, 240, 254, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 22px;
+}
+
+.page-shell.games-page .jigsaw-preview-overlay__frame,
+.page-shell.games-page .jigsaw-summary-image {
+  border-radius: 20px;
+  border: 3px solid #ffffff;
+  box-shadow:
+    0 20px 44px -14px rgba(64, 38, 118, 0.28),
+    0 0 0 1px rgba(132, 102, 196, 0.18);
+}
